@@ -1,0 +1,195 @@
+<div class="scan-main-wrapper">
+
+  <div class="scan-top-wrapper">
+
+
+    <div class="p-formgroup-inline">
+
+      <div class="p-col-12 p-md-6">
+        <div class="p-inputgroup">
+          <label class="p-sr-only">Scanned Batch</label>
+          <input type="text" pInputText placeholder="Keyword">
+          <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-warn"></button>
+        </div>
+      </div>
+
+      <div class="p-col-12 p-md-6">
+        <div class="p-inputgroup">
+          <label class="p-sr-only">Scanned product</label>
+          <input type="text" pInputText placeholder="Keyword">
+          <button type="button" pButton pRipple icon="pi pi-search" styleClass="p-button-warn"></button>
+        </div>
+      </div>
+<!--      <div class="p-field">-->
+<!--        <label for="firstname" class="p-sr-only">Firstname</label>-->
+<!--        <input id="firstname" type="text" pInputText placeholder="Firstname">-->
+<!--      </div>-->
+<!--      <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-success"></button>-->
+<!--      <div class="p-field">-->
+<!--        <label for="lastname" class="p-sr-only">Lastname</label>-->
+<!--        <input id="lastname" type="text" pInputText placeholder="Lastname">-->
+<!--      </div>-->
+<!--      <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-success"></button>-->
+    </div>
+
+
+
+    <!--    <div class="p-grid p-formgrid p-fluid">-->
+
+<!--   -->
+
+
+<!--      <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">-->
+<!--         <span class="p-float-label">-->
+<!--           <input id="float-input" type="text" pInputText>-->
+<!--            <label for="float-input">Username</label>-->
+<!--         </span>-->
+<!--        <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-success"></button>-->
+<!--      </div>-->
+<!--      <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">-->
+<!--        <span class="p-float-label">-->
+<!--          <input id="float-input1" type="text" pInputText>-->
+<!--          <label for="float-input1">Username</label>-->
+<!--        </span>-->
+<!--        <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-success"></button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+  </div>
+  <p-button label="Emails" badge="8" styleClass="p-mr-2" (onClick)="popItem()"></p-button>
+  <div class="scan-mid-wrapper">
+<!--batch products-->
+    <div class="scan-mid-left">
+
+      <div class="content-section implementation">
+        <p-table [(value)]="batchProducts" styleClass="p-datatable-striped">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Batch : {{batchId}}</th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-batchProduct>
+            <tr>
+              <td>{{batchProduct.productId}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    <div class="scan-mid-right">
+
+      <div class="scan-mid-right-top">
+        <!--Scanned to conveyor-->
+        <div class="content-section implementation">
+          <p-table [(value)]="scannedProducts" styleClass="p-datatable-sm">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Bin Loc:</th>
+                <th>Order:</th>
+                <th>Sku:</th>
+                <th>Total</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-scannedProduct>
+              <tr>
+                <td>{{scannedProduct.code}}</td>
+                <td>{{scannedProduct.name}}</td>
+                <td>{{scannedProduct.category}}</td>
+                <td>{{scannedProduct.quantity}}</td>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage" >
+                  <tr>
+                    <td [attr.colspan]="4">Record Not found</td>
+                  </tr>
+            </ng-template>
+          </p-table>
+        </div>
+        <!--Work in progress products-->
+        <div class="content-section implementation">
+          <p-table [value]="woiProducts" styleClass="p-datatable-sm">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Bin Loc:</th>
+                <th>Order:</th>
+
+                <th>Total</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-woiProduct>
+              <tr>
+                <td>{{woiProduct.code}}</td>
+                <td>{{woiProduct.name}}</td>
+                <td>{{woiProduct.category}}</td>
+                <td>{{woiProduct.quantity}}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+      <div class="scan-mid-right-bottom">
+        <div class="content-section implementation">
+          <p-table [(value)]="scannedProducts" styleClass="p-datatable-sm">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Bin Loc:</th>
+                <th>Order:</th>
+                <th>Sku:</th>
+                <th>Total</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-scannedProduct>
+              <tr>
+                <td>{{scannedProduct.code}}</td>
+                <td>{{scannedProduct.name}}</td>
+                <td>{{scannedProduct.category}}</td>
+                <td>{{scannedProduct.quantity}}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+        <!--Work in progress products-->
+        <div class="content-section implementation">
+          <p-table [value]="woiProducts" styleClass="p-datatable-sm">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Bin Loc:</th>
+                <th>Order:</th>
+
+                <th>Total</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-woiProduct>
+              <tr>
+                <td>{{woiProduct.code}}</td>
+                <td>{{woiProduct.name}}</td>
+                <td>{{woiProduct.category}}</td>
+                <td>{{woiProduct.quantity}}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="scan-bottom-wrapper"></div>
+</div>
+
+
+
+

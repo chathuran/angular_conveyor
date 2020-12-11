@@ -1,0 +1,25 @@
+.login-main-wrapper{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.login-form-wrapper{
+  margin: auto;
+  width: 60%;
+  /*border: 3px solid #73AD21;*/
+  padding: 10px;
+  box-shadow: -7px 0px 18px -4px rgba(0,0,0,0.63);
+  -webkit-box-shadow: -7px 0px 18px -4px rgba(0,0,0,0.63);
+  -moz-box-shadow: -7px 0px 18px -4px rgba(0,0,0,0.63);
+}
+.login-form-wrapper input{
+  width: 50%;
+}
+.login-form-label-wrapper{
+  width: 100%;
+  background: #118877;
+}
+
